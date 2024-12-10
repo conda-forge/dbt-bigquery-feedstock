@@ -29,6 +29,11 @@ requirements:
     - google-api-core >=2.11.0
     - dbt-core >=1.8.0
 
+    # from google-cloud-bigquery[pandas]
+    - pandas >=1.1.0
+    - pyarrow >=3.0.0
+    - db-dtypes >=0.3.0,<2.0.0dev
+
 test:
   imports:
     - dbt.adapters.bigquery
