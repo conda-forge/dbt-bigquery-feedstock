@@ -1,13 +1,13 @@
 {% set name = "dbt-bigquery" %}
-{% set version = "1.8.3" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: cc3240af407676fc5452b9a8273e70b73578c5aaa940d1c5afe9744c869df69a
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 0468057e91dd75a75c41d3b468685cb2cd9340b2e9770805cda65613f95bfe01
 
 build:
   noarch: python
@@ -16,18 +16,26 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.8
-    - dbt-common >=1.0.4,<2.0
-    - dbt-adapters >=1.1.1,<2.0
+    - python >={{ python_min }}
+    - dbt-common >=1.10,<2.0
+    - dbt-adapters >=1.7,<2.0
     - google-cloud-bigquery-core >=3.0,<4.0
     - google-cloud-storage >=2.4,<3.dev0
     - google-cloud-dataproc >=5.0,<6.dev0
     - google-api-core >=2.11.0
     - dbt-core >=1.8.0
+
+    # from google-cloud-bigquery[pandas]
+    - pandas >=1.1.0
+    - pyarrow >=3.0.0
+    - db-dtypes >=0.3.0,<2.0.0dev
+
+    # Debugging protobuf issue
+    - protobuf <5.28.3 
 
 test:
   imports:
@@ -35,6 +43,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
