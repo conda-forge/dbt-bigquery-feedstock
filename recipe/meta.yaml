@@ -1,5 +1,5 @@
 {% set name = "dbt-bigquery" %}
-{% set version = "1.10.2" %}
+{% set version = "1.10.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dbt_bigquery-{{ version }}.tar.gz
-  sha256: 93011c36021277e0f22a032bd7e1f653a6a18589e3e302154e9a7fe83f7a6551
+  sha256: 6d3dfa1c541aaf4efd73d4508e36d89173ea000262936be1e9abbb5cd9a7bb4b
 
 build:
   noarch: python
