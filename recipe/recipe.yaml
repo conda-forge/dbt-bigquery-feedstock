@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-bigquery
-  version: "1.12.1"
+  version: "1.12.2"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: 71787ff4495999a26058dffe4da46558acf57bdc409cdb46565d9afb0391c75e
+  sha256: c149062dc0008b9cca31fba55f2c8886b0f4a6fcbda8095a39191bc6705a595c
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
