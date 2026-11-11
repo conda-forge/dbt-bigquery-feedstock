@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-bigquery
-  version: "1.12.2"
+  version: 1.12.3
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: c149062dc0008b9cca31fba55f2c8886b0f4a6fcbda8095a39191bc6705a595c
+  sha256: d71352c4a679d3952ca6a6037cb60841004fc6df9b1a1f03cfab211c215a99b8
 
 build:
   number: 0
@@ -27,14 +27,13 @@ requirements:
     - dbt-common >=1.10,<2.0
     - dbt-adapters >=1.24.4,<2.0
     - google-cloud-bigquery-core >=3.0,<4.0
-    - google-cloud-storage >=2.4,<3.2
+    - google-cloud-storage >=2.4,<4.0
     - google-cloud-dataproc >=5.0,<6.dev0
     - google-api-core >=2.11.0
     - google-auth >=2.29.0
     - dbt-core >=1.10.0rc0,<2.0
     - nbformat >=5.10.4
     - google-cloud-aiplatform >=1.148.0
-
 tests:
   - python:
       imports:
@@ -42,7 +41,7 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - "*"
+        - '*'
 
 about:
   summary: The BigQuery adapter plugin for dbt
