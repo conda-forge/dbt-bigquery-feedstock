@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dbt-bigquery
-  version: 1.12.3
+  version: 1.12.4
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: d71352c4a679d3952ca6a6037cb60841004fc6df9b1a1f03cfab211c215a99b8
+  sha256: 05cb22a216faa96ca05101cacbe658543e95a4e7446c7c5a1d2d7f23789b2bee
 
 build:
   number: 0
@@ -25,7 +25,7 @@ requirements:
   run:
     - python >=${{ python_min }}
     - dbt-common >=1.10,<2.0
-    - dbt-adapters >=1.24.4,<2.0
+    - dbt-adapters >=1.24.6,<2.0
     - google-cloud-bigquery-core >=3.0,<4.0
     - google-cloud-storage >=2.4,<4.0
     - google-cloud-dataproc >=5.0,<6.dev0
